@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Asistente Olfativo de LuScent's — Te ayudamos a armar el set de decants perfecto según tu perfil y presupuesto."/>
+  <meta name="theme-color" content="#181614"/>
+  <title>Asistente Olfativo — LuScent's</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <meta property="og:title" content="LuScent's — Decants de Perfumes Originales · Chile" />
+<meta property="og:description" content="Fragancias 100% originales en frascos de 2,5 ml y 5 ml. Prueba antes de invertir. Envíos a todo Chile y entregas en Santiago." />
+<meta property="og:url" content="https://tu-usuario.github.io/luscents/index.html" />
+<meta property="og:image" content="https://tu-usuario.github.io/luscents/img/banner-preview.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="LuScent's" />
+</head>
+<body>
+
+  <header class="nav" id="main-nav">
+    <div class="nav__left">
+      <a href="index.html" class="nav__logo">Lu<em>Scent's</em></a>
+      <a href="asistente.html" class="nav__ai-link active" aria-current="page">✨ Asistente Olfativo</a>
+    </div>
+    <nav class="nav__links" role="navigation" aria-label="Menú principal">
+      <a href="index.html">Catálogo</a>
+      <a href="como-funciona.html">¿Cómo funciona?</a>
+      <a href="solicitud.html">Pedir Perfume</a>
+      <a href="terminos.html">Términos</a>
+      <a href="#contacto">Contacto</a>
+      <button class="cart-btn" id="nav-cart-btn" aria-label="Abrir carrito">
+        Carrito (<span id="nav-cart-count">0</span>)
+      </button>
+    </nav>
+  </header>
+
+  <section class="page-content" style="min-height:85vh;">
+    <div class="assistant-wrap">
+
+      <div id="assistant-intro">
+        <h1 class="page-title">Tu Personal Shopper</h1>
+        <p class="page-desc">Déjanos conocer tus gustos y armaremos un set de decants a tu medida, respetando tu presupuesto y sugiriéndote joyas olfativas que te sorprenderán.</p>
+
+        <form class="custom-form" id="assistant-form" novalidate>
+          <div class="input-group">
+            <label for="ai-profile">1. ¿Qué sensación principal buscas en un perfume?</label>
+            <select id="ai-profile" required class="ai-select">
+              <option value="" disabled selected>Selecciona un perfil olfativo...</option>
+              <option value="dulce">Cálido y Dulce (Vainilla, Caramelo, Licores)</option>
+              <option value="fresco">Fresco y Limpio (Cítricos, Marinos, Menta)</option>
+              <option value="oscuro">Misterioso y Oscuro (Maderas, Tabaco, Especias)</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="ai-budget">2. ¿Cuál es tu presupuesto ideal para este set?</label>
+            <select id="ai-budget" required class="ai-select">
+              <option value="" disabled selected>Selecciona tu rango...</option>
+              <option value="10000">Alrededor de $10.000 (Set de inicio)</option>
+              <option value="15000">Alrededor de $15.000 (Set intermedio)</option>
+              <option value="25000">Hasta $25.000 (Set premium / Nicho)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn--full form-btn">Generar mi set personalizado</button>
+        </form>
+      </div>
+
+      <div id="assistant-loading" style="display:none;text-align:center;padding:4rem 0;">
+        <p style="font-family:var(--ff-disp);font-size:1.5rem;color:var(--gold-dk);font-style:italic;">Analizando notas olfativas...</p>
+      </div>
+
+      <div id="assistant-results" style="display:none;">
+        <h2 class="page-title" style="font-size:2rem;">Tu Selección Perfecta</h2>
+        <p class="page-desc" id="ai-global-desc" style="margin-bottom:1.5rem;font-weight:500;"></p>
+
+        <div class="ai-results-grid" id="ai-base-set"></div>
+
+        <div class="ai-total-box">
+          <span>Total Set Sugerido:</span>
+          <strong id="ai-base-total"></strong>
+        </div>
+
+        <div class="ai-upsell">
+          <h3>Sugerencia Exclusiva (Fuera de presupuesto)</h3>
+          <p>Si deseas llevar esta experiencia olfativa a un nivel superior, te recomendamos añadir esta pieza:</p>
+          <div id="ai-upsell-item"></div>
+        </div>
+
+        <div class="ai-actions" style="display:flex;flex-direction:column;gap:.5rem;">
+          <button class="btn btn--full" id="btn-add-base" style="margin-bottom:.5rem;">Añadir Set Sugerido al Carrito</button>
+          <button class="btn-outline btn-outline--green" id="btn-add-all">Añadir Set + Sugerencia Exclusiva</button>
+        </div>
+
+        <button class="btn-outline" style="border:none;font-size:.75rem;margin-top:1.5rem;" onclick="location.reload()">← Volver a intentar</button>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact" id="contacto" aria-labelledby="contact-heading-ai">
+    <div class="contact__inner">
+      <h2 class="contact__title" id="contact-heading-ai">Consultas & Mayoristas</h2>
+      <p class="contact__desc">Para asesorías personalizadas o pedidos mayoristas, contáctanos directamente.</p>
+      <div class="contact__methods">
+        <div class="contact__method">
+          <span class="contact__label">Correo Electrónico</span>
+          <a href="mailto:luscents.contacto@gmail.com" class="contact__link">luscents.contacto@gmail.com</a>
+        </div>
+        <div class="contact__method">
+          <span class="contact__label">Instagram Oficial</span>
+          <a href="https://instagram.com/luscents.perfumes" target="_blank" rel="noopener noreferrer" class="contact__link">@luscents.perfumes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer__logo">LuScent's</span>
+    <p>Decants de perfumes originales · RM, Chile</p>
+    <p class="footer__copy">© 2026 LuScent's</p>
+  </footer>
+
+  <!-- CARRITO -->
+  <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+  <div class="cart-sidebar" id="cart-sidebar" role="dialog" aria-modal="true" aria-label="Tu carrito">
+    <div class="cart-header">
+      <h2>Tu Pedido</h2>
+      <button class="cart-close-btn" id="cart-close-btn" aria-label="Cerrar carrito">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><span id="cart-total-price">$ 0</span></div>
+      <a class="btn btn--full" id="cart-checkout" href="#">Enviar pedido por WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- CHECKOUT -->
+  <div class="checkout-overlay" id="checkout-overlay" aria-hidden="true"></div>
+  <div class="checkout-modal" id="checkout-modal" role="dialog" aria-modal="true" aria-label="Confirmar pedido" aria-hidden="true">
+    <div class="checkout-header">
+      <h2>Confirmar Pedido</h2>
+      <button class="cart-close-btn" id="checkout-close" aria-label="Cerrar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="checkout-body">
+      <div class="checkout-summary" id="checkout-summary"></div>
+      <div class="checkout-discount">
+        <label for="coupon-code">Código de descuento</label>
+        <div class="discount-group">
+          <input type="text" id="coupon-code" placeholder="Ej: LUSCENT10" autocomplete="off"/>
+          <button type="button" class="btn-outline" style="width:auto;padding:.75rem 1.5rem;" id="apply-coupon">Aplicar</button>
+        </div>
+        <p class="coupon-msg" id="coupon-msg" role="alert"></p>
+      </div>
+      <div class="checkout-totals">
+        <div class="totals-row"><span>Subtotal</span><span id="checkout-subtotal">$0</span></div>
+        <div class="totals-row disc-row" id="checkout-discount-row" style="display:none;">
+          <span>Descuento</span><span id="checkout-discount-amt">-$0</span>
+        </div>
+        <div class="totals-row grand-total"><span>Total Final</span><span id="checkout-total">$0</span></div>
+      </div>
+    </div>
+    <div class="checkout-footer">
+      <a class="btn btn--full" id="checkout-confirm-btn" href="#" target="_blank" rel="noopener noreferrer">Finalizar en WhatsApp</a>
+    </div>
+  </div>
+
+  <script src="js/catalog.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

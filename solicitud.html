@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Solicitar perfume a LuScent's — ¿No encontraste la fragancia? Déjanos tus datos y te avisamos cuando llegue."/>
+  <meta name="theme-color" content="#181614"/>
+  <title>Solicitar Perfume — LuScent's</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <meta property="og:title" content="LuScent's — Decants de Perfumes Originales · Chile" />
+<meta property="og:description" content="Fragancias 100% originales en frascos de 2,5 ml y 5 ml. Prueba antes de invertir. Envíos a todo Chile y entregas en Santiago." />
+<meta property="og:url" content="https://tu-usuario.github.io/luscents/index.html" />
+<meta property="og:image" content="https://tu-usuario.github.io/luscents/img/banner-preview.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="LuScent's" />
+</head>
+<body>
+
+  <header class="nav" id="main-nav">
+    <div class="nav__left">
+      <a href="index.html" class="nav__logo">Lu<em>Scent's</em></a>
+      <a href="asistente.html" class="nav__ai-link">Asistente Olfativo</a>
+    </div>
+    <nav class="nav__links" role="navigation" aria-label="Menú principal">
+      <a href="index.html">Catálogo</a>
+      <a href="como-funciona.html">¿Cómo funciona?</a>
+      <a href="solicitud.html" class="active" aria-current="page">Pedir Perfume</a>
+      <a href="terminos.html">Términos</a>
+      <a href="#contacto">Contacto</a>
+      <button class="cart-btn" id="nav-cart-btn" aria-label="Abrir carrito">
+        Carrito (<span id="nav-cart-count">0</span>)
+      </button>
+    </nav>
+  </header>
+
+  <section class="sol-page">
+    <div class="sol-wrapper">
+
+      <!-- Tabs -->
+      <div class="sol-tabs" role="tablist">
+        <button class="sol-tab active" id="tab-request" role="tab" aria-selected="true" aria-controls="panel-request">
+          Solicitar fragancia
+        </button>
+        <button class="sol-tab" id="tab-advisor" role="tab" aria-selected="false" aria-controls="panel-advisor">
+          Asesor por presupuesto
+        </button>
+      </div>
+
+      <!-- Panel 1 — Solicitar -->
+      <div class="sol-panel active" id="panel-request" role="tabpanel" aria-labelledby="tab-request">
+        <div class="sol-heading">
+          <span class="sol-heading__label">Solicitud de fragancia</span>
+          <h1 class="sol-heading__title">¿No está en<br><em>el catálogo?</em></h1>
+          <p class="sol-heading__desc">Déjanos el nombre y te contactamos en cuanto llegue. Redirigiremos la solicitud directamente a WhatsApp.</p>
+        </div>
+
+        <form class="custom-form" id="solicitud-form" novalidate>
+          <div class="input-group">
+            <label for="marca">Marca</label>
+            <input type="text" id="marca" name="marca" placeholder="Ej: Tom Ford" required autocomplete="off"/>
+          </div>
+          <div class="input-group">
+            <label for="nombre">Nombre del perfume</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej: Ombré Leather" required autocomplete="off"/>
+          </div>
+          <div class="input-group">
+            <label for="contacto">WhatsApp o Email</label>
+            <input type="text" id="contacto" name="contacto" placeholder="Para poder avisarte cuando llegue" required autocomplete="off"/>
+          </div>
+          <button type="submit" class="btn btn--full form-btn">Enviar solicitud</button>
+        </form>
+      </div>
+
+      <!-- Panel 2 — Asesor -->
+      <div class="sol-panel" id="panel-advisor" role="tabpanel" aria-labelledby="tab-advisor">
+        <div class="sol-heading">
+          <span class="sol-heading__label">Asesoría personalizada</span>
+          <h2 class="sol-heading__title">La mejor fragancia<br><em>para tu presupuesto.</em></h2>
+          <p class="sol-heading__desc">Dinos cuánto quieres gastar y qué tipo de aroma buscas. Encontramos el mejor decant disponible para ti.</p>
+        </div>
+
+        <form class="custom-form" id="advisor-form" novalidate>
+          <div class="input-group">
+            <label for="advisor-price-input">Presupuesto máximo por decant 5ml</label>
+            <input type="number" id="advisor-price-input" placeholder="Ej: 7500" min="1000" max="99999" step="500" autocomplete="off" inputmode="numeric"/>
+            <div class="price-chips" id="price-chips" role="group" aria-label="Accesos rápidos de precio" style="margin-top:.6rem;">
+              <button type="button" class="price-chip" data-val="5000">$5.000</button>
+              <button type="button" class="price-chip" data-val="8000">$8.000</button>
+              <button type="button" class="price-chip" data-val="12000">$12.000</button>
+              <button type="button" class="price-chip" data-val="99999">Sin límite</button>
+            </div>
+            <p class="sol-error" id="advisor-price-error">Ingresa un presupuesto válido.</p>
+          </div>
+
+          <div class="input-group">
+            <label for="advisor-desc">¿Qué aroma buscas?</label>
+            <textarea id="advisor-desc" placeholder="Ej: algo cálido y dulce, con mucha proyección, para usar en noches de invierno. Me gustan los aromas especiados como la canela y el oud." rows="4"></textarea>
+            <p class="sol-error" id="advisor-desc-error">Describe brevemente qué aroma buscas.</p>
+          </div>
+
+          <button type="submit" class="btn btn--full form-btn" id="advisor-submit-btn">Encontrar mi perfume ideal</button>
+        </form>
+
+        <!-- Carga -->
+        <div class="advisor-loading" id="advisor-loading" aria-live="polite">
+          <div class="advisor-loading__bar"></div>
+          <span class="advisor-loading__text">Analizando el catálogo...</span>
+        </div>
+
+        <!-- Resultados -->
+        <div class="advisor-results" id="advisor-results">
+          <div class="advisor-divider"></div>
+          <span class="advisor-result-label" id="advisor-result-label">Recomendación principal</span>
+
+          <div class="advisor-card" id="advisor-main-card">
+            <div class="advisor-card__top">
+              <div class="advisor-card__meta">
+                <span class="advisor-card__brand" id="res-brand"></span>
+                <span class="advisor-card__name"  id="res-name"></span>
+              </div>
+              <div class="advisor-card__price-block">
+                <span class="advisor-card__size-label">5 ml</span>
+                <span class="advisor-card__price" id="res-price"></span>
+              </div>
+            </div>
+            <div class="advisor-card__notas">
+              <strong>Notas</strong><span id="res-notas"></span>
+            </div>
+            <p class="advisor-card__match" id="res-match"></p>
+          </div>
+
+          <span class="advisor-result-label" style="margin-top:1.5rem;display:block;" id="advisor-alt-label">Alternativa a considerar</span>
+          <div class="advisor-card" id="advisor-alt-card">
+            <div class="advisor-card__top">
+              <div class="advisor-card__meta">
+                <span class="advisor-card__brand" id="res-alt-brand"></span>
+                <span class="advisor-card__name"  id="res-alt-name"></span>
+              </div>
+              <div class="advisor-card__price-block">
+                <span class="advisor-card__size-label">5 ml</span>
+                <span class="advisor-card__price" id="res-alt-price"></span>
+              </div>
+            </div>
+            <div class="advisor-card__notas">
+              <strong>Notas</strong><span id="res-alt-notas"></span>
+            </div>
+            <p class="advisor-card__match" id="res-alt-match"></p>
+          </div>
+
+          <div class="advisor-actions">
+            <button class="btn" id="advisor-add-main">Añadir al carrito</button>
+            <a class="btn-outline" id="advisor-wa-btn" href="#" target="_blank" rel="noopener noreferrer" style="text-align:center;">Consultar por WhatsApp</a>
+            <button class="btn-outline" id="advisor-reset" style="flex-basis:100%;">Nueva consulta</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact" id="contacto" aria-labelledby="contact-heading-sol">
+    <div class="contact__inner">
+      <h2 class="contact__title" id="contact-heading-sol">Consultas & Mayoristas</h2>
+      <p class="contact__desc">Para asesorías personalizadas o pedidos mayoristas, contáctanos directamente.</p>
+      <div class="contact__methods">
+        <div class="contact__method">
+          <span class="contact__label">Correo Electrónico</span>
+          <a href="mailto:luscents.contacto@gmail.com" class="contact__link">luscents.contacto@gmail.com</a>
+        </div>
+        <div class="contact__method">
+          <span class="contact__label">Instagram Oficial</span>
+          <a href="https://instagram.com/luscents.perfumes" target="_blank" rel="noopener noreferrer" class="contact__link">@luscents.perfumes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer__logo">LuScent's</span>
+    <p>Decants de perfumes originales · Chile</p>
+    <p class="footer__copy">© 2026 LuScent's</p>
+  </footer>
+
+  <!-- CARRITO -->
+  <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+  <div class="cart-sidebar" id="cart-sidebar" role="dialog" aria-modal="true" aria-label="Tu carrito">
+    <div class="cart-header">
+      <h2>Tu Pedido</h2>
+      <button class="cart-close-btn" id="cart-close-btn" aria-label="Cerrar carrito">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><span id="cart-total-price">$ 0</span></div>
+      <a class="btn btn--full" id="cart-checkout" href="#">Enviar pedido por WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- CHECKOUT -->
+  <div class="checkout-overlay" id="checkout-overlay" aria-hidden="true"></div>
+  <div class="checkout-modal" id="checkout-modal" role="dialog" aria-modal="true" aria-label="Confirmar pedido" aria-hidden="true">
+    <div class="checkout-header">
+      <h2>Confirmar Pedido</h2>
+      <button class="cart-close-btn" id="checkout-close" aria-label="Cerrar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="checkout-body">
+      <div class="checkout-summary" id="checkout-summary"></div>
+      <div class="checkout-discount">
+        <label for="coupon-code">Código de descuento</label>
+        <div class="discount-group">
+          <input type="text" id="coupon-code" placeholder="Ej: LUSCENT10" autocomplete="off"/>
+          <button type="button" class="btn-outline" style="width:auto;padding:.75rem 1.5rem;" id="apply-coupon">Aplicar</button>
+        </div>
+        <p class="coupon-msg" id="coupon-msg" role="alert"></p>
+      </div>
+      <div class="checkout-totals">
+        <div class="totals-row"><span>Subtotal</span><span id="checkout-subtotal">$0</span></div>
+        <div class="totals-row disc-row" id="checkout-discount-row" style="display:none;">
+          <span>Descuento</span><span id="checkout-discount-amt">-$0</span>
+        </div>
+        <div class="totals-row grand-total"><span>Total Final</span><span id="checkout-total">$0</span></div>
+      </div>
+    </div>
+    <div class="checkout-footer">
+      <a class="btn btn--full" id="checkout-confirm-btn" href="#" target="_blank" rel="noopener noreferrer">Finalizar en WhatsApp</a>
+    </div>
+  </div>
+
+  <script src="js/catalog.js"></script>
+  <script src="js/scripts.js"></script>
+  <script>
+  /* ── Asesor por presupuesto — lógica local ── */
+  (function() {
+    const fmt    = n => "$ " + n.toLocaleString("es-CL");
+    const WA_NUM = "56938861838";
+
+    /* Tabs */
+    document.getElementById("tab-request").addEventListener("click", () => switchTab("request"));
+    document.getElementById("tab-advisor").addEventListener("click", () => switchTab("advisor"));
+
+    function switchTab(tab) {
+      ["request","advisor"].forEach(id => {
+        const t = document.getElementById("tab-"   + id);
+        const p = document.getElementById("panel-" + id);
+        const active = id === tab;
+        t?.classList.toggle("active", active);
+        p?.classList.toggle("active", active);
+        t?.setAttribute("aria-selected", active);
+      });
+    }
+
+    /* Price input + chips */
+    const priceInput = document.getElementById("advisor-price-input");
+
+    document.querySelectorAll(".price-chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        document.querySelectorAll(".price-chip").forEach(c => c.classList.remove("selected"));
+        chip.classList.add("selected");
+        const val = chip.dataset.val;
+        priceInput.value       = val === "99999" ? "" : val;
+        priceInput.placeholder = val === "99999" ? "Sin límite" : "Ej: 7500";
+        document.getElementById("advisor-price-error").classList.remove("visible");
+      });
+    });
+
+    priceInput.addEventListener("input", () => {
+      document.querySelectorAll(".price-chip").forEach(c => c.classList.remove("selected"));
+      if (priceInput.value) document.getElementById("advisor-price-error").classList.remove("visible");
+    });
+
+    function getMax() {
+      if (document.querySelector(".price-chip.selected[data-val='99999']")) return 99999;
+      const v = parseInt(priceInput.value);
+      return !isNaN(v) && v > 0 ? v : null;
+    }
+
+    /* Scoring */
+    function score(p, query) {
+      const q   = query.toLowerCase();
+      const ws  = q.split(/[\s,]+/).filter(w => w.length > 2);
+      let s     = 0;
+      const hay = (p.notas + " " + p.desc + " " + (p.sim||"") + " " + p.emocion.join(" ")).toLowerCase();
+
+      ws.forEach(w => { if (hay.includes(w)) s += 3; });
+
+      const matches = [
+        [/dulce|caramelo|vainilla|gourmand|postre|licor|coñac|miel/, "calido", 5],
+        [/fresco|limpio|cítrico|marino|agua|océano|menta|verano/, "limpio", 5],
+        [/oscuro|misterioso|madera|oud|incienso|tabaco|profundo/, "oscuro", 5],
+        [/vibrante|energético|frutal|tropical/, "vibrante", 5],
+        [/fuerte|proyección|potente|deja huella/, "proyeccion-atomica", 6],
+        [/diario|trabajo|oficina|formal/, "diaria", 4],
+        [/cita|romántico|noche|íntimo/, "cita", 4],
+      ];
+      matches.forEach(([rx, em, pts]) => { if (q.match(rx) && p.emocion.includes(em)) s += pts; });
+
+      const notes = p.notas.toLowerCase();
+      ["vainilla","oud","café","canela","lavanda","tabaco","incienso","coco","rosa"].forEach(n => {
+        if (q.includes(n) && notes.includes(n)) s += 4;
+      });
+      if (q.match(/madera/) && (notes.includes("madera") || notes.includes("sándalo"))) s += 4;
+
+      s += Math.log(p.p5) * 0.5;
+      return s;
+    }
+
+    function matchReason(p, query) {
+      const q = query.toLowerCase(), parts = [];
+      if (q.match(/cálido|dulce|vainilla/)   && p.emocion.includes("calido"))              parts.push("perfil cálido que buscas");
+      if (q.match(/fresco|limpio/)            && p.emocion.includes("limpio"))              parts.push("frescura y limpieza pedida");
+      if (q.match(/oscuro|madera|oud/)        && p.emocion.includes("oscuro"))              parts.push("profundidad oscura solicitada");
+      if (p.emocion.includes("proyeccion-atomica") && q.match(/fuerte|proyección/))         parts.push("proyección atómica que necesitas");
+      if (q.match(/noche|cita/)               && (p.ocasion.includes("cita")||p.ocasion.includes("fiesta"))) parts.push("ideal para el contexto nocturno");
+      if (q.match(/diario|oficina/)           && p.ocasion.includes("diaria"))              parts.push("perfectamente versátil para el día");
+      if (!parts.length) parts.push("excelente equilibrio entre calidad y precio");
+      return "Encaja por: " + parts.join(", ") + ".";
+    }
+
+    /* Form submit */
+    document.getElementById("advisor-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let valid = true;
+      const max  = getMax();
+      const desc = (document.getElementById("advisor-desc").value || "").trim();
+      if (!max)  { document.getElementById("advisor-price-error").classList.add("visible"); valid = false; }
+      if (!desc) { document.getElementById("advisor-desc-error").classList.add("visible"); valid = false; }
+      else         document.getElementById("advisor-desc-error").classList.remove("visible");
+      if (!valid) return;
+
+      document.getElementById("advisor-results").classList.remove("visible");
+      document.getElementById("advisor-loading").classList.add("visible");
+      document.getElementById("advisor-submit-btn").disabled = true;
+      setTimeout(() => runAdvisor(desc, max), 1400);
+    });
+
+    function runAdvisor(query, maxPrice) {
+      const pool = (typeof activeProducts !== "undefined" ? activeProducts : []).filter(p => p.p5 <= maxPrice);
+
+      if (!pool.length) {
+        document.getElementById("advisor-loading").classList.remove("visible");
+        document.getElementById("advisor-submit-btn").disabled = false;
+        document.getElementById("advisor-result-label").textContent = "Sin resultados en ese rango";
+        document.getElementById("res-name").textContent  = "No hay fragancias disponibles en ese rango. Prueba un presupuesto mayor.";
+        ["res-brand","res-notas","res-price","res-match"].forEach(id => { const el = document.getElementById(id); if (el) el.textContent = ""; });
+        document.getElementById("advisor-alt-card").style.display  = "none";
+        document.getElementById("advisor-alt-label").style.display = "none";
+        document.getElementById("advisor-wa-btn").style.display    = "none";
+        document.getElementById("advisor-results").classList.add("visible");
+        return;
+      }
+
+      const sorted = pool.map(p => ({ p, s: score(p, query) })).sort((a,b) => b.s - a.s);
+      const main   = sorted[0].p;
+      const alt    = sorted.length > 1 ? sorted[1].p : null;
+      const budgetLabel = maxPrice >= 99999 ? "Sin límite" : fmt(maxPrice);
+
+      document.getElementById("res-brand").textContent  = main.brand;
+      document.getElementById("res-name").textContent   = main.name;
+      document.getElementById("res-price").textContent  = fmt(main.p5);
+      document.getElementById("res-notas").textContent  = " " + main.notas;
+      document.getElementById("res-match").textContent  = matchReason(main, query);
+
+      if (alt) {
+        document.getElementById("res-alt-brand").textContent  = alt.brand;
+        document.getElementById("res-alt-name").textContent   = alt.name;
+        document.getElementById("res-alt-price").textContent  = fmt(alt.p5);
+        document.getElementById("res-alt-notas").textContent  = " " + alt.notas;
+        document.getElementById("res-alt-match").textContent  = matchReason(alt, query);
+        document.getElementById("advisor-alt-card").style.display  = "";
+        document.getElementById("advisor-alt-label").style.display = "";
+      } else {
+        document.getElementById("advisor-alt-card").style.display  = "none";
+        document.getElementById("advisor-alt-label").style.display = "none";
+      }
+
+      /* WhatsApp */
+      const waLines = [
+        "Hola LuScent's, consulta del *Asesor por Presupuesto*:",
+        "",
+        `*Presupuesto:* ${budgetLabel} (por decant 5ml)`,
+        `*Aroma buscado:* ${query}`,
+        "",
+        `*Recomendación principal:* ${main.brand} — ${main.name} (${fmt(main.p5)})`,
+        alt ? `*Alternativa sugerida:* ${alt.brand} — ${alt.name} (${fmt(alt.p5)})` : "",
+        "",
+        "¿Están disponibles? Quedo a la espera.",
+      ].filter(Boolean).join("\n");
+
+      const waBtn = document.getElementById("advisor-wa-btn");
+      waBtn.href          = `https://wa.me/${WA_NUM}?text=${encodeURIComponent(waLines)}`;
+      waBtn.style.display = "";
+
+      /* Añadir al carrito */
+      document.getElementById("advisor-add-main").onclick = () => {
+        if (typeof LS !== "undefined") {
+          LS.cart.push({ brand:main.brand, name:main.name, size:"5ml", price:main.p5, img:main.img });
+          LS.saveCart(); LS.updateCartUI();
+          LS.showToast({ brand:main.brand, name:main.name, img:main.img });
+          LS.animateCartBtn(); LS.toggleCart();
+        }
+      };
+
+      /* Reset */
+      document.getElementById("advisor-reset").onclick = () => {
+        document.getElementById("advisor-results").classList.remove("visible");
+        document.getElementById("advisor-form").reset();
+        document.querySelectorAll(".price-chip").forEach(c => c.classList.remove("selected"));
+        priceInput.placeholder                        = "Ej: 7500";
+        document.getElementById("advisor-submit-btn").disabled = false;
+        document.getElementById("advisor-alt-card").style.display  = "";
+        document.getElementById("advisor-alt-label").style.display = "";
+      };
+
+      document.getElementById("advisor-loading").classList.remove("visible");
+      document.getElementById("advisor-submit-btn").disabled = false;
+      document.getElementById("advisor-results").classList.add("visible");
+    }
+
+    document.getElementById("advisor-desc").addEventListener("input", () => {
+      if (document.getElementById("advisor-desc").value.trim())
+        document.getElementById("advisor-desc-error").classList.remove("visible");
+    });
+  })();
+  </script>
+</body>
+</html>

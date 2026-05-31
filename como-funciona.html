@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Cómo funciona LuScent's — Proceso de compra: selección, pago, retiro en Metro o envío a todo Chile."/>
+  <meta name="theme-color" content="#181614"/>
+  <title>¿Cómo funciona? — LuScent's</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <meta property="og:title" content="LuScent's — Decants de Perfumes Originales · Chile" />
+<meta property="og:description" content="Fragancias 100% originales en frascos de 2,5 ml y 5 ml. Prueba antes de invertir. Envíos a todo Chile y entregas en Santiago." />
+<meta property="og:url" content="https://tu-usuario.github.io/luscents/index.html" />
+<meta property="og:image" content="https://tu-usuario.github.io/luscents/img/banner-preview.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="LuScent's" />
+</head>
+<body>
+
+  <header class="nav" id="main-nav">
+    <div class="nav__left">
+      <a href="index.html" class="nav__logo">Lu<em>Scent's</em></a>
+      <a href="asistente.html" class="nav__ai-link">Asistente Olfativo</a>
+    </div>
+    <nav class="nav__links" role="navigation" aria-label="Menú principal">
+      <a href="index.html">Catálogo</a>
+      <a href="como-funciona.html" class="active" aria-current="page">¿Cómo funciona?</a>
+      <a href="solicitud.html">Pedir Perfume</a>
+      <a href="terminos.html">Términos</a>
+      <a href="#contacto">Contacto</a>
+      <button class="cart-btn" id="nav-cart-btn" aria-label="Abrir carrito">
+        Carrito (<span id="nav-cart-count">0</span>)
+      </button>
+    </nav>
+  </header>
+
+  <section class="how" style="min-height:80vh;display:flex;align-items:center;padding-top:calc(var(--nav-h) + 4rem);">
+    <div class="how__inner">
+      <h1 class="section-title">El proceso de compra</h1>
+      <div class="how__steps">
+
+        <div class="how__step">
+          <span class="how__num">01</span>
+          <h2>Selección y Stock</h2>
+          <p>Añade las fragancias de 2,5 ml o 5 ml a tu carrito y envíanos la solicitud mediante WhatsApp. Verificaremos inmediatamente la disponibilidad de stock en nuestro inventario.</p>
+        </div>
+
+        <div class="how__step">
+          <span class="how__num">02</span>
+          <h2>Confirmación y Pago</h2>
+          <p>Una vez confirmado el stock, te proporcionaremos los datos bancarios. La extracción y preparación del decant se realiza de manera exclusiva una vez recepcionada la transferencia.</p>
+        </div>
+
+        <div class="how__step">
+          <span class="how__num">03</span>
+          <h2>Entregas Presenciales</h2>
+          <p>Para residentes de la Región Metropolitana, coordinamos entregas en estaciones céntricas de la red de Metro: Santa Ana, Los Héroes y Toesca, o puntos a convenir.</p>
+        </div>
+
+        <div class="how__step">
+          <span class="how__num">04</span>
+          <h2>Envíos Nacionales</h2>
+          <p>Realizamos despachos a todo Chile. Puedes optar por envío por pagar en sucursal, o incluir el costo del despacho en tu transferencia inicial para mayor comodidad.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contacto" aria-labelledby="contact-heading-cf">
+    <div class="contact__inner">
+      <h2 class="contact__title" id="contact-heading-cf">Consultas & Mayoristas</h2>
+      <p class="contact__desc">Para asesorías personalizadas o pedidos mayoristas, contáctanos directamente.</p>
+      <div class="contact__methods">
+        <div class="contact__method">
+          <span class="contact__label">Correo Electrónico</span>
+          <a href="mailto:luscents.contacto@gmail.com" class="contact__link">luscents.contacto@gmail.com</a>
+        </div>
+        <div class="contact__method">
+          <span class="contact__label">Instagram Oficial</span>
+          <a href="https://instagram.com/luscents.perfumes" target="_blank" rel="noopener noreferrer" class="contact__link">@luscents.perfumes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer__logo">LuScent's</span>
+    <p>Decants de perfumes originales · RM, Chile</p>
+    <p class="footer__copy">© 2026 LuScent's</p>
+  </footer>
+
+  <!-- CARRITO -->
+  <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+  <div class="cart-sidebar" id="cart-sidebar" role="dialog" aria-modal="true" aria-label="Tu carrito">
+    <div class="cart-header">
+      <h2>Tu Pedido</h2>
+      <button class="cart-close-btn" id="cart-close-btn" aria-label="Cerrar carrito">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><span id="cart-total-price">$ 0</span></div>
+      <a class="btn btn--full" id="cart-checkout" href="#">Enviar pedido por WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- CHECKOUT -->
+  <div class="checkout-overlay" id="checkout-overlay" aria-hidden="true"></div>
+  <div class="checkout-modal" id="checkout-modal" role="dialog" aria-modal="true" aria-label="Confirmar pedido" aria-hidden="true">
+    <div class="checkout-header">
+      <h2>Confirmar Pedido</h2>
+      <button class="cart-close-btn" id="checkout-close" aria-label="Cerrar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="checkout-body">
+      <div class="checkout-summary" id="checkout-summary"></div>
+      <div class="checkout-discount">
+        <label for="coupon-code">Código de descuento</label>
+        <div class="discount-group">
+          <input type="text" id="coupon-code" placeholder="Ej: LUSCENT10" autocomplete="off"/>
+          <button type="button" class="btn-outline" style="width:auto;padding:.75rem 1.5rem;" id="apply-coupon">Aplicar</button>
+        </div>
+        <p class="coupon-msg" id="coupon-msg" role="alert"></p>
+      </div>
+      <div class="checkout-totals">
+        <div class="totals-row"><span>Subtotal</span><span id="checkout-subtotal">$0</span></div>
+        <div class="totals-row disc-row" id="checkout-discount-row" style="display:none;">
+          <span>Descuento</span><span id="checkout-discount-amt">-$0</span>
+        </div>
+        <div class="totals-row grand-total"><span>Total Final</span><span id="checkout-total">$0</span></div>
+      </div>
+    </div>
+    <div class="checkout-footer">
+      <a class="btn btn--full" id="checkout-confirm-btn" href="#" target="_blank" rel="noopener noreferrer">Finalizar en WhatsApp</a>
+    </div>
+  </div>
+
+  <script src="js/catalog.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

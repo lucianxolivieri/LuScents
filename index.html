@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="LuScent's — Decants de perfumes 100% originales en 2,5 ml y 5 ml. Prueba antes de invertir. Envíos a todo Chile."/>
+  <meta name="theme-color" content="#181614"/>
+  <title>LuScent's — Decants de Perfumes Originales · Chile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <meta property="og:title" content="LuScent's — Decants de Perfumes Originales · Chile" />
+<meta property="og:description" content="Fragancias 100% originales en frascos de 2,5 ml y 5 ml. Prueba antes de invertir. Envíos a todo Chile y entregas en Santiago." />
+<meta property="og:url" content="https://tu-usuario.github.io/luscents/index.html" />
+<meta property="og:image" content="https://tu-usuario.github.io/luscents/img/banner-preview.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="LuScent's" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="main-nav">
+    <div class="nav__left">
+      <a href="index.html" class="nav__logo">Lu<em>Scent's</em></a>
+      <a href="asistente.html" class="nav__ai-link">Asistente Olfativo</a>
+    </div>
+    <nav class="nav__links" role="navigation" aria-label="Menú principal">
+      <a href="index.html" class="active" aria-current="page">Catálogo</a>
+      <a href="como-funciona.html">¿Cómo funciona?</a>
+      <a href="solicitud.html">Pedir Perfume</a>
+      <a href="terminos.html">Términos</a>
+      <a href="#contacto">Contacto</a>
+      <button class="cart-btn" id="nav-cart-btn" aria-label="Abrir carrito">
+        Carrito (<span id="nav-cart-count">0</span>)
+      </button>
+    </nav>
+  </header>
+
+  <!-- HERO (el JS lo reemplaza si CYBER_ACTIVE = true) -->
+  <section class="hero">
+    <div class="hero__inner">
+      <span class="hero__eye">Decants · Perfumes Originales · Chile</span>
+      <h1 class="hero__title">El perfume que<br><em>siempre quisiste.</em></h1>
+      <p class="hero__sub">Fragancias 100% originales en frasquitos de 2,5 ml y 5 ml. Se acabaron las compras a ciegas.</p>
+      <div class="hero__actions">
+        <a href="#catalogo" class="btn btn--hero">Ver catálogo</a>
+        <a href="#catalogo" class="btn btn--sets" id="hero-sets-btn">Sets con descuento</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLS BAR -->
+  <div class="pills-bar" aria-hidden="true">
+    <span>100% originales</span>
+    <span>49 fragancias disponibles</span>
+    <span>Envío a todo Chile</span>
+    <span>Pedidos por WhatsApp</span>
+  </div>
+
+  <!-- HOT SALES -->
+  <section class="hot-sales" id="hot-sales-section" aria-labelledby="hs-heading">
+    <div class="hot-sales__header">
+      <div>
+        <span class="hot-sales__eye">Disponibilidad limitada</span>
+        <h2 class="hot-sales__title" id="hs-heading">Hot Sales — <em>Frascos Completos</em></h2>
+      </div>
+      <p class="hot-sales__sub">
+        Frascos sellados, casi llenos o parciales muy por debajo del retail. Originales 100% verificados.
+      </p>
+    </div>
+    <div class="hs-grid" id="hot-sales-grid" role="list" aria-label="Frascos en oferta"></div>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <main class="catalog" id="catalogo">
+
+    <!-- Filtros -->
+    <div class="filters" role="search" aria-label="Filtros de catálogo">
+      <div class="filters__left">
+        <button class="filter-btn active" id="filter-all-btn" data-cat="all">Todos</button>
+        <button class="filter-btn" data-cat="arabe">Árabes</button>
+        <button class="filter-btn" data-cat="disenador">Diseñador</button>
+        <button class="filter-btn" data-cat="nicho">Nicho</button>
+        <button class="filter-btn filter-btn--sets" id="filter-sets-btn">Sets</button>
+      </div>
+      <div class="filters__right">
+        <div class="search-wrap">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="search" id="search-input" placeholder="Buscar perfume o marca…" aria-label="Buscar en el catálogo"/>
+        </div>
+        <button class="clear-filters-btn" id="clear-filters-btn" aria-label="Limpiar todos los filtros">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          Limpiar
+        </button>
+        <div class="price-filter">
+          <button class="price-toggle" id="price-toggle" aria-haspopup="listbox" aria-expanded="false">
+            Precio
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="price-dd" id="price-dd" role="listbox">
+            <button class="sort-opt" data-dir="asc" role="option">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+              Menor a mayor
+            </button>
+            <button class="sort-opt" data-dir="desc" role="option">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              Mayor a menor
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel catálogo -->
+    <div id="catalog-panel">
+      <div class="catalog__meta">
+        <span id="result-count" aria-live="polite" aria-atomic="true">49 fragancias</span>
+      </div>
+
+      <div class="adv-filters" role="group" aria-label="Filtros avanzados">
+        <div class="adv-filter-group" role="group" aria-label="Filtrar por ocasión">
+          <span class="adv-filter-group__label">Ocasión</span>
+          <button class="adv-pill active" data-filter="ocasion" data-val="all">Todas</button>
+          <button class="adv-pill" data-filter="ocasion" data-val="diaria">Diaria</button>
+          <button class="adv-pill" data-filter="ocasion" data-val="formal">Formal</button>
+          <button class="adv-pill" data-filter="ocasion" data-val="cita">Cita</button>
+          <button class="adv-pill" data-filter="ocasion" data-val="fiesta">Fiesta</button>
+        </div>
+        <div class="adv-filter-group" role="group" aria-label="Filtrar por estilo">
+          <span class="adv-filter-group__label">Estilo</span>
+          <button class="adv-pill active" data-filter="emocion" data-val="all">Todos</button>
+          <button class="adv-pill" data-filter="emocion" data-val="limpio">Limpio</button>
+          <button class="adv-pill" data-filter="emocion" data-val="calido">Cálido</button>
+          <button class="adv-pill" data-filter="emocion" data-val="oscuro">Oscuro</button>
+          <button class="adv-pill" data-filter="emocion" data-val="vibrante">Vibrante</button>
+          <button class="adv-pill" data-filter="emocion" data-val="proyeccion-atomica">Proyección</button>
+        </div>
+        <!-- selects ocultos para compatibilidad con scripts.js -->
+        <select id="filter-ocasion" class="adv-select-hidden" aria-hidden="true" tabindex="-1">
+          <option value="all">all</option>
+          <option value="diaria">diaria</option>
+          <option value="formal">formal</option>
+          <option value="cita">cita</option>
+          <option value="fiesta">fiesta</option>
+        </select>
+        <select id="filter-emocion" class="adv-select-hidden" aria-hidden="true" tabindex="-1">
+          <option value="all">all</option>
+          <option value="limpio">limpio</option>
+          <option value="calido">calido</option>
+          <option value="oscuro">oscuro</option>
+          <option value="vibrante">vibrante</option>
+          <option value="proyeccion-atomica">proyeccion-atomica</option>
+        </select>
+      </div>
+
+      <!-- Decants -->
+      <div id="decants-section">
+        <div class="product-grid" id="product-grid" role="list" aria-label="Catálogo de fragancias"></div>
+      </div>
+
+      <!-- Sets inline (solo al buscar, o en vista sets) -->
+      <div id="sets-inline-section" style="display:none;">
+        <div class="sets-panel__header">
+          <p class="sets-panel__meta" id="sets-inline-meta">Sets curados con descuento — comprás todo junto y ahorrás.</p>
+        </div>
+        <div class="sets-grid" id="sets-grid" role="list" aria-label="Sets de decants"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- REVIEWS -->
+  <section class="reviews" aria-labelledby="reviews-heading">
+    <div class="reviews__inner">
+      <div class="reviews__header">
+        <div>
+          <span class="reviews__eye">Opiniones verificadas</span>
+          <h2 class="reviews__title" id="reviews-heading">Lo que dicen<br><em>nuestros clientes.</em></h2>
+        </div>
+        <p class="reviews__sub">Reseñas reales de los grupos de facebook. Sin editar, sin filtrar.</p>
+      </div>
+
+      <div class="reviews-slider">
+  <div class="reviews-track" id="reviews-track">
+
+        <!-- Tarjeta 1 -->
+        <a class="review-card" href="https://www.facebook.com/groups/493029531364323" target="_blank" rel="noopener noreferrer" aria-label="Ver reseña de Victor F. en Facebook">
+          <div class="review-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-card__quote">
+            "Buenas noches grupo, esperando que se encuentren bien, vengo a dejar un feedback mas que positivo a Luciano Olivieri, quien me vendió un Stronger With You Intensely a un precio super razonable, presento muy buena disposición y comunicación respecto a la adquisición de la fragancia, ya por ultimo el embalaje en el cual envío el perfume venia bien armado y protegido. Recomendado 100%."
+          </p>
+          <div class="review-card__author">
+            <div>
+              <p class="review-card__name">Victor F.</p>
+              <p class="review-card__date">Nov 2024</p>
+            </div>
+            <span class="review-card__fb">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </span>
+          </div>
+        </a>
+
+        <!-- Tarjeta 2 -->
+        <a class="review-card" href="https://www.facebook.com/groups/493029531364323" target="_blank" rel="noopener noreferrer" aria-label="Ver reseña de Claudio Pena en Facebook">
+          <div class="review-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-card__quote">
+            "Dejo Feedback ultra positivo para Luciano Olivieri por la venta y envío en perfectas condiciones de esta joya. Vendedor confiable y recomendo. Saludos!"
+          </p>
+          <div class="review-card__author">
+            <div>
+              <p class="review-card__name">Claudio Peña</p>
+              <p class="review-card__date">Sep 2024</p>
+            </div>
+            <span class="review-card__fb">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </span>
+          </div>
+        </a>
+
+        <!-- Tarjeta 3 -->
+        <a class="review-card" href="https://www.facebook.com/groups/294068391559729/user/100004410096037" target="_blank" rel="noopener noreferrer" aria-label="Ver reseña de Cristian Llano. en Facebook">
+          <div class="review-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-card__quote">
+            "Agradecido Luciano Olivieri, tenía muchas ganas de probar este perfume .!! Excelente precio , puntual y el perfume es perfecto para días calurosos una bomba cítrica y refrescante 👏🏻👏🏻￼￼👍🏻."
+          </p>
+          <div class="review-card__author">
+            <div>
+              <p class="review-card__name">Cristian Llano.</p>
+              <p class="review-card__date">Mayo 2025</p>
+            </div>
+            <span class="review-card__fb">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </span>
+          </div>
+        </a>
+
+        <!-- Tarjeta 4 -->
+        <a class="review-card" href="https://www.facebook.com/groups/1072136379981425/search/?q=Luciano%20Olivieri" target="_blank" rel="noopener noreferrer" aria-label="Ver reseña de Reinaldo Arredondo. en Facebook">
+          <div class="review-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-card__quote">
+            "Quiero dejar voto positivo a Luciano Olivieri por venderme esta pequeña joya para la temporada, entrega y producto 10 de 10, súper recomendado !!."
+          </p>
+          <div class="review-card__author">
+            <div>
+              <p class="review-card__name">Reinaldo A.</p>
+              <p class="review-card__date">Agosto 2024</p>
+            </div>
+            <span class="review-card__fb">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </span>
+          </div>
+        </a>
+
+       
+       
+
+      </div>
+</div><!-- /reviews-slider -->
+
+    
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact" id="contacto" aria-labelledby="contact-heading">
+    <div class="contact__inner">
+      <h2 class="contact__title" id="contact-heading">Consultas & Mayoristas</h2>
+      <p class="contact__desc">Para asesorías personalizadas, cotizaciones corporativas o pedidos mayoristas, contáctanos directamente.</p>
+      <div class="contact__methods">
+        <div class="contact__method">
+          <span class="contact__label">Correo Electrónico</span>
+          <a href="mailto:luscents.contacto@gmail.com" class="contact__link">luscents.contacto@gmail.com</a>
+        </div>
+        <div class="contact__method">
+          <span class="contact__label">Instagram Oficial</span>
+          <a href="https://instagram.com/luscents.perfumes" target="_blank" rel="noopener noreferrer" class="contact__link">@luscents.perfumes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer__logo">LuScent's</span>
+    <p>Decants de perfumes originales · Chile</p>
+    <p class="footer__copy">© 2026 LuScent's</p>
+  </footer>
+
+  <!-- MODAL DECANT -->
+  <div class="overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-label="Detalle de fragancia" aria-hidden="true">
+    <div class="modal-decant">
+      <button class="modal-close-btn" aria-label="Cerrar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-decant__img-wrap">
+        <img src="" alt=""/>
+      </div>
+      <div class="modal-decant__info">
+        <p class="modal-decant__brand"></p>
+        <h2 class="modal-decant__name"></h2>
+        <p class="modal-decant__sim"></p>
+        <div class="modal-decant__details">
+          <p class="modal-decant__notas"></p>
+          <p class="modal-decant__desc"></p>
+        </div>
+        <div class="modal-decant__sizes" role="radiogroup" aria-label="Seleccionar tamaño"></div>
+        <div class="modal-decant__actions">
+          <button class="btn btn--full" id="modal-add-cart">Añadir al carrito</button>
+          <a class="btn-outline" id="modal-wa" href="#">Pedir directamente</a>
+        </div>
+        <p class="modal-decant__note" style="display:none;" role="alert" aria-hidden="true">Selecciona un tamaño primero.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL HOT SALE -->
+  <div class="overlay" id="hs-modal-overlay" role="dialog" aria-modal="true" aria-label="Detalle de frasco" aria-hidden="true">
+    <div class="modal-hs">
+      <button class="modal-close-btn" aria-label="Cerrar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-hs__img-wrap">
+        <img class="modal-hs__img" src="" alt=""/>
+      </div>
+      <div class="modal-hs__info">
+        <p class="modal-hs__brand"></p>
+        <h2 class="modal-hs__name"></h2>
+        <div class="modal-hs__meta">
+          <span class="modal-hs__cond"></span>
+          <span class="modal-hs__size"></span>
+        </div>
+        <div class="modal-hs__details">
+          <p class="modal-hs__notas"></p>
+          <p class="modal-hs__desc"></p>
+        </div>
+        <div class="modal-hs__pricing">
+          <span class="modal-hs__original"></span>
+          <span class="modal-hs__price"></span>
+          <span class="modal-hs__disc"></span>
+        </div>
+        <a class="modal-hs__wa" href="#" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.118 1.528 5.85L.057 23.215a.75.75 0 0 0 .916.928l5.42-1.516A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.711 9.711 0 0 1-4.947-1.352l-.355-.211-3.675 1.028 1.005-3.595-.231-.37A9.712 9.712 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+          Consultar disponibilidad
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARRITO -->
+  <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+  <div class="cart-sidebar" id="cart-sidebar" role="dialog" aria-modal="true" aria-label="Tu carrito">
+    <div class="cart-header">
+      <h2>Tu Pedido</h2>
+      <button class="cart-close-btn" id="cart-close-btn" aria-label="Cerrar carrito">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><span id="cart-total-price">$ 0</span></div>
+      <a class="btn btn--full" id="cart-checkout" href="#">Enviar pedido por WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- CHECKOUT -->
+  <div class="checkout-overlay" id="checkout-overlay" aria-hidden="true"></div>
+  <div class="checkout-modal" id="checkout-modal" role="dialog" aria-modal="true" aria-label="Confirmar pedido" aria-hidden="true">
+    <div class="checkout-header">
+      <h2>Confirmar Pedido</h2>
+      <button class="cart-close-btn" id="checkout-close" aria-label="Cerrar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="checkout-body">
+      <div class="checkout-summary" id="checkout-summary"></div>
+      <div class="checkout-discount">
+        <label for="coupon-code">Código de descuento</label>
+        <div class="discount-group">
+          <input type="text" id="coupon-code" placeholder="Ej: LUSCENT10" autocomplete="off"/>
+          <button type="button" class="btn-outline" style="width:auto;padding:.75rem 1.5rem;" id="apply-coupon">Aplicar</button>
+        </div>
+        <p class="coupon-msg" id="coupon-msg" role="alert"></p>
+      </div>
+      <div class="checkout-totals">
+        <div class="totals-row"><span>Subtotal</span><span id="checkout-subtotal">$0</span></div>
+        <div class="totals-row disc-row" id="checkout-discount-row" style="display:none;">
+          <span>Descuento</span><span id="checkout-discount-amt">-$0</span>
+        </div>
+        <div class="totals-row grand-total"><span>Total Final</span><span id="checkout-total">$0</span></div>
+      </div>
+    </div>
+    <div class="checkout-footer">
+      <a class="btn btn--full" id="checkout-confirm-btn" href="#" target="_blank" rel="noopener noreferrer">Finalizar en WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- MODAL SET -->
+  <div class="overlay" id="set-modal-overlay" role="dialog" aria-modal="true" aria-label="Detalle del set" aria-hidden="true">
+    <div class="modal-set">
+      <button class="modal-close-btn" aria-label="Cerrar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="modal-set__left">
+        <div class="modal-set__items"></div>
+      </div>
+      <div class="modal-set__right">
+        <span class="modal-set__cyber" style="display:none;">Precio Cyber</span>
+        <h2 class="modal-set__name"></h2>
+        <p class="modal-set__desc"></p>
+        <div class="modal-set__pricing">
+          <span class="modal-set__original"></span>
+          <span class="modal-set__price"></span>
+          <span class="modal-set__disc"></span>
+        </div>
+        <p class="modal-set__saving"></p>
+        <div class="modal-set__actions">
+          <button class="btn btn--full modal-set__add">Añadir set al carrito</button>
+          <a class="btn-outline modal-set__wa" href="#" target="_blank" rel="noopener noreferrer">Coordinar por WhatsApp</a>
+        </div>
+        <p class="modal-set__legal">El set se añade como un ítem al carrito. Al confirmar por WhatsApp te indicamos los detalles de cada decant.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/catalog.js"></script>
+  <script src="js/scripts.js"></script>
+  <script>
+    // Botón hero sets → scroll + activa vista sets
+    document.getElementById("hero-sets-btn")?.addEventListener("click", function(e) {
+      e.preventDefault();
+      document.getElementById("catalogo")?.scrollIntoView({ behavior:"smooth" });
+      setTimeout(() => LS.activateSetsView(), 400);
+    });
+
+    // ── Pills de filtros avanzados ──────────────────
+    document.querySelectorAll(".adv-pill").forEach(pill => {
+      pill.addEventListener("click", function() {
+        const filter = this.dataset.filter;
+        const val    = this.dataset.val;
+        // marcar activo dentro del grupo
+        document.querySelectorAll(`.adv-pill[data-filter="${filter}"]`).forEach(p => p.classList.remove("active"));
+        this.classList.add("active");
+        // sincronizar con el select oculto y disparar change
+        const sel = document.getElementById("filter-" + filter);
+        if (sel) {
+          sel.value = val;
+          sel.dispatchEvent(new Event("change"));
+        }
+      });
+    });
+  </script>
+</body>
+</html>
