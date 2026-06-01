@@ -10,9 +10,9 @@ const LS = (() => {
   const WA_NUM      = "56938861838";
   const IMG_FALLBACK = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect width='120' height='120' fill='%23F4F1EC'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='%23C8BFB5'%3E%F0%9F%AA%B4%3C/text%3E%3C%2Fsvg%3E";
   const COUPONS      = {
-    "LUSCENT10":  { type:"percent", value:10,   label:"10% de descuento" },
-    "BIENVENIDA": { type:"fixed",   value:3000, label:"$3.000 de descuento" },
-    "MAYORISTA":  { type:"percent", value:15,   label:"15% descuento mayorista" },
+   // "LUSCENT10":  { type:"percent", value:10,   label:"10% de descuento" },
+    //"BIENVENIDA": { type:"fixed",   value:3000, label:"$3.000 de descuento" },
+    //"MAYORISTA":  { type:"percent", value:15,   label:"15% descuento mayorista" },
   };
 
   /* ── HELPERS ────────────────────────── */
