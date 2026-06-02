@@ -549,7 +549,7 @@ const hotSales = [
 
   // EJEMPLO 3 — Frasco parcial
   {
-    brand: "Rabanne", name: "Invictus Parfum",
+    brand: "Rabanne", name: "Invictus Parfum 200ML",
     size: "200ml",
     condition: "SELLADO",
     price: 125000,
@@ -560,18 +560,18 @@ const hotSales = [
     active: true
   },
  {
-    brand: "Jean Paul Gaultier", name: "Le male le Parfum",
+    brand: "Jean Paul Gaultier", name: "Le male le Parfum 200ML",
     size: "200ml",
     condition: "SELLADO",
     price: 120000,
     originalPrice: 185000,
-    img: "jean-paul-gaultier-le-male-le-parfum",
+    img: "jpgaultier-le-male-le-parfum",
     notas: "Cardamomo, lavanda, iris, vainilla",
     desc: "Elegancia oriental atalcada. Oscuro y sofisticado.",
     active: true
   },
    {
-    brand: "Rabanne", name: "Invictus victory Elixir",
+    brand: "Rabanne", name: "Invictus victory Elixir 200ML",
     size: "200ml",
     condition: "SELLADO",
     price: 120000,
@@ -587,7 +587,7 @@ const hotSales = [
     condition: "SELLADO",
     price: 65000,
     originalPrice: 100000,
-    img: "emporio-armani-stronger-with-you-intensely",
+    img: "emporio-armani-stronger-intensely",
     notas: "Pimienta rosa, toffee, canela, ámbar",
     desc: "Un aroma intenso y duradero que refleja la pasión y la fuerza.",
     active: true
