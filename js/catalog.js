@@ -353,6 +353,15 @@ const products = [
     active: true
   },
   {
+    brand: "Rabanne", name: "Invictus Parfum",
+    sim: "",
+    cat: "disenador", ocasion: ["fiesta","cita","diaria","formal"], emocion: ["limpio","vibrante"],
+    p5: 7500, p25: 4000, img: "rabanne-invictus-parfum",
+    notas: "Notas Marinas, lavanda, jabón, madera de sándalo",
+    desc: "Aromático acuático, para uso diario y desatacar por su olor distintivo.",
+    active: true
+  },
+  {
     brand: "Emporio Armani", name: "Stronger With You Intensely",
     sim: "",
     cat: "disenador", ocasion: ["cita","fiesta"], emocion: ["calido"],
@@ -540,17 +549,49 @@ const hotSales = [
 
   // EJEMPLO 3 — Frasco parcial
   {
-    brand: "Parfums de Marly", name: "Althaïr",
-    size: "125ml EDP",
-    condition: "parcial",
-    price: 155000,
+    brand: "Rabanne", name: "Invictus Parfum",
+    size: "200ml",
+    condition: "SELLADO",
+    price: 125000,
     originalPrice: 195000,
-    img: "pdm-althair",
-    notas: "Flor de azahar, canela, vainilla bourbon, praliné",
-    desc: "Frasco con ~95ml restantes. Excelente oportunidad de probar nicho premium a precio accesible.",
-    active: false
+    img: "rabanne-invictus-parfum",
+    notas: "Notas Marinas, lavanda, jabón, madera de sándalo",
+    desc: "Aromático acuático, para uso diario y desatacar por su olor distintivo.",
+    active: true
   },
-
+ {
+    brand: "Jean Paul Gaultier", name: "Le male le Parfum",
+    size: "200ml",
+    condition: "SELLADO",
+    price: 120000,
+    originalPrice: 185000,
+    img: "jean-paul-gaultier-le-male-le-parfum",
+    notas: "Cardamomo, lavanda, iris, vainilla",
+    desc: "Elegancia oriental atalcada. Oscuro y sofisticado.",
+    active: true
+  },
+   {
+    brand: "Rabanne", name: "Invictus victory Elixir",
+    size: "200ml",
+    condition: "SELLADO",
+    price: 120000,
+    originalPrice: 190000,
+    img: "rabanne-invictus-victory-elixir",
+    notas: "Incienso, pachulí, vainilla, haba tonka",
+    desc: "Densidad resinosa y misteriosa de uso nocturno.",
+    active: true
+  },
+  {
+    brand: "Emporio Armani", name: "Stronger With You Intensely",
+    size: "50ml",
+    condition: "SELLADO",
+    price: 65000,
+    originalPrice: 100000,
+    img: "emporio-armani-stronger-with-you-intensely",
+    notas: "Pimienta rosa, toffee, canela, ámbar",
+    desc: "Un aroma intenso y duradero que refleja la pasión y la fuerza.",
+    active: true
+  },
   // PARA AGREGAR UNO NUEVO, copia este bloque y edítalo:
   // {
   //   brand: "Marca",
