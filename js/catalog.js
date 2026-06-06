@@ -67,7 +67,7 @@
    Cambia a true para activar precios Cyber en TODO el sitio.
    Cambia a false cuando termine la oferta.
 ══════════════════════════════════════════════════════════════ */
-const CYBER_ACTIVE = true;
+const CYBER_ACTIVE = false;
 
 // Fecha y hora en que termina el Cyber (cuando CYBER_ACTIVE = true).
 // Formato: "AÑO-MES-DÍA HH:MM:SS"  — usa la zona horaria de tu servidor/browser.
