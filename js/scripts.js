@@ -23,11 +23,15 @@ const LS = (() => {
   const imgPath = name => `img/${name}.png`;
   const catLabel = cat => ({ arabe:"Árabe", disenador:"Diseñador", nicho:"Nicho" }[cat] || cat);
 
-  const condLabel = c => ({
-    "sellado":     { text:"Sellado",    css:"sellado"    },
-    "casi-lleno":  { text:"Casi lleno", css:"casi-lleno" },
-    "parcial":     { text:"Parcial",    css:"parcial"    },
-  }[c] || { text:c, css:"parcial" });
+  const condLabel = c => {
+    // Normalizamos a minúsculas para tolerar "SELLADO", "Sellado", etc.
+    const key = String(c || "").trim().toLowerCase();
+    return ({
+      "sellado":     { text:"Sellado",    css:"sellado"    },
+      "casi-lleno":  { text:"Casi lleno", css:"casi-lleno" },
+      "parcial":     { text:"Parcial",    css:"parcial"    },
+    }[key] || { text:c, css:"parcial" });
+  };
 
   function imgFallback(el) {
     if (!el) return;
@@ -374,6 +378,8 @@ const LS = (() => {
 
     const canvas = $("cyber-canvas");
     if (!canvas) return;
+    // Respetar "reducir movimiento": el contador sigue, pero sin partículas animadas.
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = canvas.getContext("2d");
     const resize = () => { canvas.width = hero.offsetWidth; canvas.height = hero.offsetHeight; };
     resize();

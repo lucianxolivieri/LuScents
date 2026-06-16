@@ -65,7 +65,7 @@ a { text-decoration: none; }
 .nav--transparent { background: transparent; }
 .nav--scrolled    { background: var(--ink); box-shadow: 0 2px 24px rgba(20,18,16,.35); }
 
-.nav__left { display: flex; align-items: center; gap: 2.5rem; }
+.nav__left { display: flex; align-items: center; gap: 2rem; }
 
 .nav__logo {
   font-family: var(--ff-disp);
@@ -80,7 +80,7 @@ a { text-decoration: none; }
 
 .nav__links {
   display: flex;
-  gap: 2.5rem;
+  gap: 2rem;
   align-items: center;
 }
 .nav__links a {
@@ -2298,4 +2298,61 @@ html, body { overflow-x: hidden; max-width: 100%; }
 /* ── FIX: grid nav en mobile sin hamburger aún cargado ── */
 @media (max-width: 768px) {
   .nav__left { flex: 1; min-width: 0; }
+}
+
+/* ── ACCESIBILIDAD: respetar "reducir movimiento" ──────────────
+   Para usuarios con prefers-reduced-motion activado: detenemos las
+   animaciones continuas (carrusel de reseñas, partículas y degradados
+   Cyber) y acortamos las transiciones, sin perder funcionalidad. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reviews-track { animation: none !important; transform: none !important; }
+  .cyber-particles { display: none !important; }
+}
+
+/* ── NAV: colapsar a menú lateral también en tablets y laptops chicos ──
+   Entre 769px y 1200px el nav horizontal completo no entra y el botón del
+   carrito quedaba cortado fuera de pantalla. Reutilizamos el menú lateral. */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .nav {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0;
+  }
+  .nav__left { min-width: 0; overflow: hidden; }
+  .hamburger-btn { display: flex; flex-shrink: 0; margin-left: .25rem; }
+  .nav__links {
+    display: flex !important;
+    position: fixed;
+    top: 0; right: -100%;
+    width: min(320px,80vw); height: 100dvh;
+    background: var(--ink);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: calc(var(--nav-h) + 1.5rem) 2rem 2rem;
+    gap: 0;
+    z-index: 100;
+    transition: right .4s var(--ease-lux);
+    box-shadow: -6px 0 36px rgba(20,18,16,.25);
+    overflow-y: auto;
+  }
+  .nav--mobile-open .nav__links { right: 0; }
+  .nav__links a { font-size: 1rem; letter-spacing: 0.1em; color: rgba(232,213,183,.65); padding: 1rem 0; width: 100%; border-bottom: 1px solid rgba(232,213,183,.07); }
+  .nav__links a:last-of-type { border-bottom: none; }
+  .nav__links a.active { color: var(--white); }
+  .nav__links .cart-btn { margin-top: 1.5rem; font-size: 0.85rem; color: var(--gold-lt); padding: .75rem 0; border-top: 1px solid rgba(232,213,183,.07); width: 100%; justify-content: flex-start; }
+}
+
+/* ── Campo de cupón: 16px en pantallas chicas para evitar el zoom de iOS ── */
+@media (max-width: 768px) {
+  .discount-group input { font-size: 16px; }
 }

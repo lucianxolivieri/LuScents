@@ -499,6 +499,15 @@ const products = [
     active: true
   },
   {
+    brand: "Giardini di Toscana", name: "Blu Mare",
+    sim: "",
+    cat: "nicho", ocasion: ["diaria","formal"], emocion: ["limpio","vibrante","proyeccion-atomica"],
+    p5: 11500, p25: 6500, img: "giardini-blu-mare",
+    notas: "Pomelo, bergamota, notas marinas, ciprés, ámbar gris",
+    desc: "Cítrico aromático marino de gran frescura y proyección. Pomelo y bergamota chispeantes sobre un fondo salino de ámbar gris y musgo.",
+    active: true
+  },
+  {
     brand: "Casa Niche", name: "La Vida del Naranjo Extrait",
     sim: "",
     cat: "nicho", ocasion: ["diaria","formal"], emocion: ["limpio","vibrante"],
@@ -557,7 +566,7 @@ const hotSales = [
     img: "rabanne-invictus-parfum",
     notas: "Notas Marinas, lavanda, jabón, madera de sándalo",
     desc: "Aromático acuático, para uso diario y desatacar por su olor distintivo.",
-    active: true
+    active: false
   },
  {
     brand: "Jean Paul Gaultier", name: "Le male le Parfum 200ML",
@@ -568,7 +577,7 @@ const hotSales = [
     img: "jpgaultier-le-male-le-parfum",
     notas: "Cardamomo, lavanda, iris, vainilla",
     desc: "Elegancia oriental atalcada. Oscuro y sofisticado.",
-    active: true
+    active: false
   },
    {
     brand: "Rabanne", name: "Invictus victory Elixir 200ML",
@@ -579,7 +588,7 @@ const hotSales = [
     img: "rabanne-invictus-victory-elixir",
     notas: "Incienso, pachulí, vainilla, haba tonka",
     desc: "Densidad resinosa y misteriosa de uso nocturno.",
-    active: true
+    active: false
   },
   {
     brand: "Emporio Armani", name: "Stronger With You Intensely",
@@ -590,7 +599,7 @@ const hotSales = [
     img: "emporio-armani-stronger-intensely",
     notas: "Pimienta rosa, toffee, canela, ámbar",
     desc: "Un aroma intenso y duradero que refleja la pasión y la fuerza.",
-    active: true
+    active: false
   },
   // PARA AGREGAR UNO NUEVO, copia este bloque y edítalo:
   // {
@@ -936,7 +945,7 @@ const sets = [
     id:   "coleccion-completa",
     name: "Colección Completa",
     badge: "Todo el catálogo",
-    desc: "Los 49 decants de todo el catálogo LuScent's en formato 2,5 ml. Árabes, diseñador y nicho. El set definitivo para explorar cada fragancia sin límites.",
+    desc: "Los 51 decants de todo el catálogo LuScent's en formato 2,5 ml. Árabes, diseñador y nicho. El set definitivo para explorar cada fragancia sin límites.",
     size: "2.5ml",
     items: [
       { img: "lattafa-khamrah-qahwa",         brand: "Lattafa",               name: "Khamrah Qahwa"            },
@@ -969,6 +978,7 @@ const sets = [
       { img: "carolina-herrera-bad-boy-cobalt",brand:"Carolina Herrera",      name: "Bad Boy Cobalt"           },
       { img: "armani-acqua-di-gio-profondo",  brand: "Giorgio Armani",        name: "Acqua Di Gio Profondo EDP"},
       { img: "rabanne-invictus-victory-elixir",brand:"Rabanne",               name: "Invictus Victory Elixir"  },
+      { img: "rabanne-invictus-parfum",       brand: "Rabanne",               name: "Invictus Parfum"          },
       { img: "emporio-armani-stronger-intensely",brand:"Emporio Armani",      name: "Stronger With You Intensely"},
       { img: "azzaro-most-wanted-intense",    brand: "Azzaro",                name: "The Most Wanted EDP Intense"},
       { img: "azzaro-most-wanted-parfum",     brand: "Azzaro",                name: "The Most Wanted Parfum"   },
@@ -984,6 +994,7 @@ const sets = [
       { img: "montale-intense-cafe",          brand: "Montale",               name: "Intense Café"             },
       { img: "montale-arabians-tonka",        brand: "Montale",               name: "Arabians Tonka"           },
       { img: "giardini-bianco-latte",         brand: "Giardini di Toscana",   name: "Bianco Latte"             },
+      { img: "giardini-blu-mare",             brand: "Giardini di Toscana",   name: "Blu Mare"                 },
       { img: "casa-niche-naranjo-extrait",    brand: "Casa Niche",            name: "La Vida del Naranjo Extrait"},
       { img: "casa-niche-eva",                brand: "Casa Niche",            name: "EVA"                      },
       { img: "penhaligons-cairo",             brand: "Penhaligon's",          name: "Cairo"                    },
