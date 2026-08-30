@@ -225,6 +225,15 @@ const products = [
     active: true
   },
   {
+    brand: "Fragance World", name: "Harmony Code Intense",
+    sim: "Armani Code",
+    cat: "arabe", ocasion: ["cita","diaria"], emocion: ["fresco, limpio"],
+    p5: 3000, p25: 2000, img: "fragance-world-harmony-code-intense",
+    notas: "Anís Estrellado, Ciprés, cedro, haba tonka, madera de gaiac",
+    desc: "Extrait gourmand envolvente. Recrea el aroma cálido de la repostería fina.",
+    active: true
+  },
+  {
     brand: "French Avenue", name: "Vulcan Feu",
     sim: "God of Fire",
     cat: "arabe", ocasion: ["fiesta","diaria"], emocion: ["vibrante"],
@@ -374,7 +383,7 @@ const products = [
     brand: "Armani", name: "Armani Code Parfum",
     sim: "",
     cat: "diseñador ", ocasion: ["formal","diaria"], emocion: ["limpio","fresco"],
-    p5: 4500, p25: 8000, img: "armani-code-parfum",
+    p5: 8000, p25: 4500, img: "armani-code-parfum",
     notas: "Iris, Bergamota, haba tonka, cedro",
     desc: "Un aroma fresco y elegante que refleja la esencia de la vida urbana.",
     active: true
