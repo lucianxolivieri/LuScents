@@ -374,7 +374,7 @@ const products = [
     brand: "Armani", name: "Armani Code Parfum",
     sim: "",
     cat: "diseñador ", ocasion: ["formal","diaria"], emocion: ["limpio","fresco"],
-    p5: 10000, p25: 6000, img: "armani-code-parfum",
+    p5: 4500, p25: 8000, img: "armani-code-parfum",
     notas: "Iris, Bergamota, haba tonka, cedro",
     desc: "Un aroma fresco y elegante que refleja la esencia de la vida urbana.",
     active: true
@@ -556,7 +556,7 @@ const products = [
     brand: "Solonoi", name: "Mate Nostrum",
     sim: "",
     cat: "nicho", ocasion: ["diaria","cita"], emocion: ["limpio","vibrante"],
-    p5: 10000, p25: 6000, img: "solonoi-mate-nostrum",
+    p5: 11000, p25: 6500, img: "solonoi-mate-nostrum",
     notas: "Yerba Mate, pomelo, albahaca, cardamomo",
     desc: "Un aroma fresco y vibrante que refleja la esencia de la yerba mate en todas sus etapas.",
     active: true
@@ -565,7 +565,7 @@ const products = [
     brand: "Solonoi", name: "Dolce Narcotico",
     sim: "",
     cat: "nicho", ocasion: ["fiesta","cita"], emocion: ["calido","oscuro"],
-    p5: 10000, p25: 6000, img: "solonoi-dolce-narcotico",
+    p5: 11000, p25: 6500, img: "solonoi-dolce-narcotico",
     notas: "Almendra, Chocolate Blanco, Cannabis, flores, Absenta, Miel, Vainilla, Café, Nuez",
     desc: "Un aroma intenso y seductor que combina ingredientes exóticos y misteriosos.",
     active: true
