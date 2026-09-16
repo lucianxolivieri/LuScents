@@ -96,7 +96,7 @@ const products = [
     p5: 3000, p25: 1700, img: "lattafa-ramz-silver",
     notas: "Pera, lavanda, vainilla, menta",
     desc: "Composición aromática dulce. Salida afrutada y vibrante que asienta de forma gradual en una base de vainilla atalcada.",
-    active: true
+    active: false
   },
   {
     brand: "Lattafa", name: "Teriaq Intense",
@@ -153,6 +153,15 @@ const products = [
     active: true
   },
   {
+    brand: "Afnan", name: "Turathi Blue",
+    sim: "Bvlgari Tygar",
+    cat: "arabe", ocasion: ["diaria","fresca"], emocion: ["limpio", "vibrante"],
+    p5: 3500, p25: 2000, img: "afnan-turathi-blue",
+    notas: "Pomelo, Citricos, Maderas, ámbar",
+    desc: "Perfil aromático y actuático que combinan futras, citricos y maderas con bases especiadas para un perfume ideal en verano .",
+    active: true
+  },
+  {
     brand: "Armaf", name: "Odyssey Aqua Edition",
     sim: "Invictus Platinum",
     cat: "arabe", ocasion: ["diaria","formal"], emocion: ["limpio"],
@@ -185,7 +194,16 @@ const products = [
     cat: "arabe", ocasion: ["fiesta","diaria"], emocion: ["limpio","vibrante"],
     p5: 3500, p25: 2000, img: "rasasi-hawas-ice",
     notas: "Manzana, limón, menta, ámbar gris",
-    desc: "Versión polarizada y crujiente del original. Menta helada de proyección sobresaliente.",
+    desc: "Versión polarizada y crujiente del original. Menta avainillada helada de proyección sobresaliente.",
+    active: true
+  },
+  {
+    brand: "Rasasi", name: "Hawas VERDE",
+    sim: "Torino 21",
+    cat: "arabe", ocasion: ["diaria"], emocion: ["limpio","vibrante", "fresco"],
+    p5: 3500, p25: 2000, img: "rasasi-hawas-verde",
+    notas: "Lima, romero, menta, ambar",
+    desc: "Versión fresca y vibrante del original. Lima y romero combinados con menta dando la sensación a mojito",
     active: true
   },
   {
@@ -541,6 +559,15 @@ const products = [
     p5: 9500, p25: 5500, img: "casa-niche-eva",
     notas: "Manzana verde, caramelo, almizcles blancos",
     desc: "Frutal pulcro y balanceado. Dulzor y crujido fresco.",
+    active: true
+  },
+  {
+    brand: "Casa Niche", name: "Citric Fresh",
+    sim: "",
+    cat: "nicho", ocasion: ["diaria","cita"], emocion: ["vibrante","limpio"],
+    p5: 9500, p25: 5500, img: "casa-niche-citric-fresh",
+    notas: "Lima, Limón, Jengibre, Musgo de roble, Maderas",
+    desc: "Aroma cítrico y especiado. Frescura limpia y chispeante. Con toques de madera que recuerdan un aroma terrozo y natural.",
     active: true
   },
   {
