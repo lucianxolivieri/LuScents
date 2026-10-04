@@ -67,12 +67,12 @@
    Cambia a true para activar precios Cyber en TODO el sitio.
    Cambia a false cuando termine la oferta.
 ══════════════════════════════════════════════════════════════ */
-const CYBER_ACTIVE = false;
+const CYBER_ACTIVE = true;
 
 // Fecha y hora en que termina el Cyber (cuando CYBER_ACTIVE = true).
 // Formato: "AÑO-MES-DÍA HH:MM:SS"  — usa la zona horaria de tu servidor/browser.
 // Ejemplo: "2025-11-30 23:59:59"
-const CYBER_END_DATE = "2026-06-03 23:59:59";
+const CYBER_END_DATE = "2026-10-6 23:59:59";
 
 /* ─────────────────────────────────────────
    DECANTS — Catálogo principal
