@@ -633,15 +633,15 @@ const hotSales = [
     active: false
   },
  {
-    brand: "Jean Paul Gaultier", name: "Le male le Parfum 200ML",
+    brand: "Jean Paul Gaultier", name: "Le male ELIXIR 200ML",
     size: "200ml",
     condition: "SELLADO",
-    price: 120000,
-    originalPrice: 185000,
-    img: "jpgaultier-le-male-le-parfum",
-    notas: "Cardamomo, lavanda, iris, vainilla",
-    desc: "Elegancia oriental atalcada. Oscuro y sofisticado.",
-    active: false
+    price: 125000,
+    originalPrice: 195000,
+    img: "jpgaultier-le-male-elixir",
+    notas: "Lavanda, menta, vainilla, miel dorada",
+    desc: "Interpretación rica y opulenta de un clásico, para llamar la atención a un precio irreconocible",
+    active: true
   },
    {
     brand: "Rabanne", name: "Invictus victory Elixir 200ML",
